@@ -1,0 +1,34 @@
+==========================================
+  AXTS - CONTENIDO PENDIENTE
+==========================================
+
+La seccion AXTS esta desactivada en la web
+hasta que tengas el contenido listo.
+
+FOTOS NECESARIAS:
+  - axts-about.jpg      → Foto de perfil AXTS
+  - axts-track1.jpg     → Portada: Industrial Revolution
+  - axts-track2.jpg     → Portada: Makina Overdrive
+  - axts-track3.jpg     → Portada: Warehouse Ritual
+  - axts-mix1.jpg       → Portada: Hardbounce Experience
+  - axts-gallery1.jpg   → Foto rave (grande)
+  - axts-gallery2.jpg   → Foto warehouse
+  - axts-gallery3.jpg   → Foto underground
+  - axts-gallery4.jpg   → Foto setup
+  - axts-gallery5.jpg   → Foto festival (ancha)
+
+TEXTOS A REVISAR:
+  - Bio / About AXTS
+  - Nombres de tracks
+  - Eventos proximos
+  - Links a redes sociales
+
+NOTA IMPORTANTE:
+  La seccion de MUSICA (producciones propias)
+  solo estara en AXTS, ya que Alex solo produce
+  techno/schranz/makina. La seccion ATM no tiene
+  apartado de musica propia.
+
+Cuando tengas todo, dile a Claude que reactive
+la seccion AXTS en la web.
+==========================================
