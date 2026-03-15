@@ -1379,28 +1379,85 @@ body.brand-axts .gallery-venue-label { color: var(--axts-primary); opacity: 0.6;
 
     .brand-switch { order: -1; }
 
-    .section { padding: 80px 0; }
-    .music-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Hero mobile */
+    .brand-hero { min-height: 100vh; min-height: 100dvh; }
+    .brand-hero-title { font-size: clamp(2.8rem, 12vw, 5rem); }
+    .brand-hero-subtitle { font-size: 0.7rem; letter-spacing: 4px; }
+    .brand-hero-tagline { font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 28px; }
+    .brand-hero-photo img { object-position: center center; opacity: 0.3; }
+
+    .section { padding: 60px 0; }
+    .container { padding: 0 16px; }
+    .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+
+    /* About mobile */
+    .about-heading { font-size: 1.1rem; }
+    .about-content p { font-size: 0.9rem; }
+
+    /* Content / Social cards */
     .content-grid { grid-template-columns: 1fr; }
     .content-card-wide { grid-column: span 1; }
+
+    /* Video split stacks vertically */
+    .content-video-split { flex-direction: column; }
+    .content-video-left { width: 100%; max-height: 400px; }
+    .content-video-left video { max-height: 400px; }
+    .content-video-right { padding: 24px 20px; border-left: none; border-top: 1px solid rgba(212, 168, 67, 0.15); }
+    .content-video-title { font-size: 1.4rem; letter-spacing: 3px; }
+
+    /* Music grid */
+    .music-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Gallery mobile */
     .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
     .gallery-item-large { grid-column: span 2; grid-row: span 1; }
     .gallery-item-wide { grid-column: span 2; }
+    .gallery-venue-title { font-size: 1rem; }
 
-    .event-card { flex-wrap: wrap; padding: 20px; }
+    /* Events mobile */
+    .event-card { flex-wrap: wrap; padding: 16px; gap: 12px; }
     .event-action { width: 100%; }
     .event-action a { display: block; text-align: center; width: 100%; }
+    .event-name { font-size: 0.95rem; }
 
+    /* Contact mobile */
     .contact-cards { grid-template-columns: 1fr; }
+    .contact-subtitle { font-size: 0.85rem; }
 
     .footer-content { flex-direction: column; gap: 12px; text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .brand-hero-cta { flex-direction: column; align-items: center; }
+    .brand-hero { min-height: 100vh; min-height: 100dvh; }
+    .brand-hero-title { font-size: clamp(2.2rem, 11vw, 3.5rem); }
+    .brand-hero-cta { flex-direction: column; align-items: center; gap: 12px; }
+    .brand-hero-cta .btn { width: 100%; max-width: 250px; text-align: center; }
+
+    .container { padding: 0 14px; }
+    .section { padding: 50px 0; }
+
     .music-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item-large, .gallery-item-wide { grid-column: span 1; }
-    .about-stats { flex-direction: column; gap: 16px; }
+
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
+    .gallery-item-large, .gallery-item-wide { grid-column: span 2; }
+
+    .about-stats { flex-direction: row; gap: 12px; }
+    .stat-number { font-size: 1.8rem; }
+
+    .content-video-left video { max-height: 350px; }
+    .content-video-title { font-size: 1.2rem; }
+
     .split-genres { font-size: 0.7rem; letter-spacing: 1px; }
+
+    .event-date { width: 50px; height: 50px; }
+    .event-day { font-size: 1.1rem; }
+
+    .nav-logo { font-size: 1.1rem; }
+}
+
+/* Fix for iOS Safari 100vh */
+@supports (-webkit-touch-callout: none) {
+    .brand-hero {
+        min-height: -webkit-fill-available;
+    }
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alextorres1709.github.io/alex-torres-dj/sitemap.xml
