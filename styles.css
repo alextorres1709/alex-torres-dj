@@ -1160,6 +1160,8 @@ body.brand-axts .gallery-venue-label { color: var(--axts-primary); opacity: 0.6;
 
 .gallery-overlay span { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 
+.axts-gallery-overlay { background: linear-gradient(to top, rgba(180, 0, 0, 0.75), transparent 50%); }
+
 /* Gallery venue titles */
 .gallery-venue-title {
     font-family: var(--font-display);
