@@ -996,6 +996,19 @@ body.brand-atm .content-video-title {
 .yt-play-btn:hover { transform: scale(1.1); background: #e60000; }
 .yt-play-btn svg { color: #fff; }
 
+.yt-facade-label {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    pointer-events: none;
+}
+
 .yt-facade iframe {
     position: absolute;
     inset: 0;
@@ -1012,11 +1025,31 @@ body.brand-atm .content-video-title {
     padding: 32px 32px 32px 0;
 }
 
+.axts-hero-logo {
+    height: clamp(80px, 15vw, 160px);
+    width: auto;
+    max-width: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(230, 0, 0, 0.4));
+    animation: fadeInUp 0.6s ease forwards 0.25s;
+    opacity: 0;
+}
+
 .axts-set-logo {
     height: 40px;
     width: auto;
     margin-bottom: 16px;
     object-fit: contain;
+}
+
+.axts-no-events {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border: 1px dashed rgba(230, 0, 0, 0.2);
+    border-radius: var(--border-radius);
 }
 
 .axts-set-title {

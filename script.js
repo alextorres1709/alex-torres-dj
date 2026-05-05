@@ -301,18 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
         enterBrand('atm');
     }
 
-    // --- YouTube facade: load iframe on click ---
+    // --- YouTube facade: open on YouTube (embed disabled on this video) ---
     document.querySelectorAll('.yt-facade').forEach(facade => {
         facade.addEventListener('click', () => {
             const id = facade.dataset.videoid;
             const start = facade.dataset.start || 0;
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0`;
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframe.allowFullscreen = true;
-            iframe.title = facade.querySelector('img')?.alt || 'YouTube video';
-            facade.innerHTML = '';
-            facade.appendChild(iframe);
+            window.open(`https://www.youtube.com/watch?v=${id}&t=${start}s`, '_blank', 'noopener');
         });
     });
 });
