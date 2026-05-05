@@ -90,7 +90,7 @@ ul { list-style: none; }
 }
 
 .split-right {
-    background: linear-gradient(135deg, #05080d 0%, #080d1a 50%, #0a0512 100%);
+    background: linear-gradient(135deg, #0b0303 0%, #140404 50%, #0d0202 100%);
 }
 
 .split-bg {
@@ -125,8 +125,8 @@ ul { list-style: none; }
 
 .split-right .split-label {
     color: var(--axts-primary);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(230, 0, 0, 0.4);
+    background: rgba(230, 0, 0, 0.08);
 }
 
 .split-title {
@@ -207,7 +207,7 @@ ul { list-style: none; }
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.06), transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(230, 0, 0, 0.1), transparent 70%);
     opacity: 0;
     transition: opacity 0.5s;
     z-index: 1;
