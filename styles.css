@@ -56,12 +56,15 @@ ul { list-style: none; }
 /* =========================================
    SPLIT HERO SCREEN
    ========================================= */
+/* =========================================
+   SPLIT HERO — BRAND SELECTOR
+   ========================================= */
 .split-hero {
     position: fixed;
     inset: 0;
     z-index: 9999;
     display: flex;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
 .split-hero.hidden {
@@ -78,128 +81,35 @@ ul { list-style: none; }
     justify-content: center;
     cursor: pointer;
     overflow: hidden;
-    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: flex 0.65s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.split-side:hover {
-    flex: 1.3;
-}
+.split-side:hover { flex: 1.55; }
 
+/* ATM — background photo with dark green overlay */
 .split-left {
-    background: linear-gradient(135deg, #060d05 0%, #0a1a05 50%, #081208 100%);
+    background:
+        linear-gradient(rgba(3, 9, 2, 0.84), rgba(5, 14, 3, 0.88)),
+        url('assets/atm-hero.jpg') center/cover no-repeat;
 }
 
+/* AXTS — deep red/black */
 .split-right {
-    background: linear-gradient(135deg, #05080d 0%, #080d1a 50%, #0a0512 100%);
+    background: linear-gradient(160deg, #0b0303 0%, #140404 50%, #0d0202 100%);
 }
 
-.split-bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-.split-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 40px;
-}
-
-.split-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 50px;
-    margin-bottom: 24px;
-}
-
-.split-left .split-label {
-    color: var(--atm-primary);
-    border: 1px solid rgba(168, 255, 0, 0.3);
-    background: rgba(168, 255, 0, 0.08);
-}
-
-.split-right .split-label {
-    color: var(--axts-primary);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    background: rgba(0, 240, 255, 0.08);
-}
-
-.split-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    letter-spacing: 3px;
-    line-height: 1;
-    margin-bottom: 16px;
-}
-
-.split-title-atm span {
-    background: var(--atm-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.split-title-axts {
-    font-family: var(--font-axts);
-    font-size: clamp(3rem, 8vw, 7rem);
-    letter-spacing: 12px;
-    background: var(--axts-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.split-axts-logo {
-    height: clamp(70px, 12vw, 160px);
-    width: auto;
-    max-width: 360px;
-    display: block;
-    margin: 0 auto 16px;
-    filter: drop-shadow(0 0 24px rgba(230, 0, 0, 0.65));
-}
-
-.split-genres {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-}
-
-.split-center-line {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1px;
-    height: 40%;
-    z-index: 10;
-    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
-}
-
-.split-divider-glow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    z-index: 5;
-}
-
-/* Hover glow effects on split */
+/* Ambient glow overlay — dims at rest, full on hover */
 .split-left::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(168, 255, 0, 0.08), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s;
+    background:
+        radial-gradient(ellipse 75% 60% at 50% 55%, rgba(168, 255, 0, 0.12) 0%, transparent 70%),
+        linear-gradient(to top, rgba(168, 255, 0, 0.12) 0%, transparent 45%);
+    opacity: 0.45;
+    transition: opacity 0.55s ease;
     z-index: 1;
+    pointer-events: none;
 }
 .split-left:hover::before { opacity: 1; }
 
@@ -207,12 +117,181 @@ ul { list-style: none; }
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.06), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s;
+    background:
+        radial-gradient(ellipse 75% 60% at 50% 55%, rgba(230, 0, 0, 0.16) 0%, transparent 70%),
+        linear-gradient(to top, rgba(230, 0, 0, 0.16) 0%, transparent 45%);
+    opacity: 0.45;
+    transition: opacity 0.55s ease;
     z-index: 1;
+    pointer-events: none;
 }
 .split-right:hover::before { opacity: 1; }
+
+/* Top accent bar */
+.split-left::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent 0%, var(--atm-primary) 50%, transparent 100%);
+    box-shadow: 0 0 16px rgba(168, 255, 0, 0.5);
+    z-index: 3;
+    opacity: 0.55;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+.split-left:hover::after { opacity: 1; }
+
+.split-right::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent 0%, var(--axts-primary) 50%, transparent 100%);
+    box-shadow: 0 0 16px rgba(230, 0, 0, 0.6);
+    z-index: 3;
+    opacity: 0.55;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+.split-right:hover::after { opacity: 1; }
+
+.split-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.split-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Label badge */
+.split-label {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.split-left .split-label {
+    color: var(--atm-primary);
+    border: 1px solid rgba(168, 255, 0, 0.45);
+    background: rgba(168, 255, 0, 0.07);
+    text-shadow: 0 0 12px rgba(168, 255, 0, 0.5);
+    box-shadow: 0 0 18px rgba(168, 255, 0, 0.1);
+}
+
+.split-right .split-label {
+    color: var(--axts-primary);
+    border: 1px solid rgba(230, 0, 0, 0.45);
+    background: rgba(230, 0, 0, 0.08);
+    text-shadow: 0 0 12px rgba(230, 0, 0, 0.6);
+    box-shadow: 0 0 18px rgba(230, 0, 0, 0.12);
+}
+
+/* ATM title */
+.split-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+    letter-spacing: 4px;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+}
+
+.split-title-atm span {
+    background: var(--atm-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 14px rgba(168, 255, 0, 0.55));
+}
+
+/* AXTS logo in split */
+.split-axts-logo {
+    height: clamp(85px, 13vw, 190px);
+    width: auto;
+    max-width: 420px;
+    display: block;
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 0 28px rgba(230, 0, 0, 0.75)) drop-shadow(0 0 8px rgba(230, 0, 0, 0.4));
+    transition: filter 0.45s ease;
+}
+.split-right:hover .split-axts-logo {
+    filter: drop-shadow(0 0 48px rgba(230, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(230, 0, 0, 0.6));
+}
+
+/* Genre text */
+.split-genres {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.36);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 38px;
+    font-weight: 500;
+}
+
+/* Center divider with VS badge */
+.split-center-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(168, 255, 0, 0.4) 25%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(230, 0, 0, 0.4) 75%,
+        transparent 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.split-vs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: #050508;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+    animation: vs-pulse 3s ease-in-out infinite;
+}
+
+@keyframes vs-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.08); }
+    50% { box-shadow: 0 0 0 8px rgba(255,255,255,0.03); }
+}
+
+.split-divider-glow { display: none; }
 
 /* =========================================
    NAVBAR
@@ -554,8 +633,9 @@ body.brand-axts .brand-hero-subtitle { color: var(--axts-primary); }
 .btn-full { width: 100%; }
 
 .split-enter {
-    padding: 16px 48px;
-    font-size: 0.85rem;
+    padding: 16px 52px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
 }
 
 /* =========================================
@@ -1512,10 +1592,13 @@ body.brand-axts .gallery-venue-label { color: var(--axts-primary); opacity: 0.6;
 
 @media (max-width: 768px) {
     .split-hero { flex-direction: column; }
-    .split-side:hover { flex: 1.15; }
+    .split-side:hover { flex: 1.2; }
+    .split-center-line { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); background: linear-gradient(to right, rgba(168,255,0,0.35), rgba(255,255,255,0.2), rgba(230,0,0,0.35)); }
+    .split-vs { top: 50%; left: 50%; }
+    .split-left::after, .split-right::after { top: 0; left: 0; right: 0; bottom: auto; width: 100%; height: 3px; }
 
     .split-title { font-size: clamp(2rem, 8vw, 3.5rem); }
-    .split-title-axts { font-size: clamp(2.5rem, 10vw, 4rem); letter-spacing: 6px; }
+    .split-axts-logo { height: clamp(60px, 14vw, 100px); }
 
     .nav-menu {
         position: fixed;
@@ -1607,7 +1690,8 @@ body.brand-axts .gallery-venue-label { color: var(--axts-primary); opacity: 0.6;
     .content-video-left video { max-height: 350px; }
     .content-video-title { font-size: 1.2rem; }
 
-    .split-genres { font-size: 0.7rem; letter-spacing: 1px; }
+    .split-genres { font-size: 0.65rem; letter-spacing: 1.5px; }
+    .split-enter { padding: 14px 40px; }
 
     .event-date { width: 50px; height: 50px; }
     .event-day { font-size: 1.1rem; }
