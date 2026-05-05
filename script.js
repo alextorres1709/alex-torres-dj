@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const suffix = brand === 'axts' ? '-axts' : '';
         navLinks.forEach(link => {
             const text = link.textContent;
-            const map = { 'Sobre Mi': 'about', 'Contenido': 'content', 'Galeria': 'gallery', 'Eventos': 'events', 'Contacto': 'contact' };
+            const map = { 'Sobre mí': 'about', 'Contenido': 'content', 'Galería': 'gallery', 'Eventos': 'events', 'Contacto': 'contact' };
             if (map[text]) {
                 let id;
                 if (text === 'Contacto') {
