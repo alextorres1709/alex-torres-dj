@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentBrand = null;
 
     // ============================================
-    // AXTS DISABLED - Set to true when AXTS content is ready
-    const AXTS_ENABLED = false;
+    const AXTS_ENABLED = true;
     // ============================================
 
     // If AXTS is disabled, skip split screen and go straight to ATM
