@@ -78,6 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
         contactTag.className = brand === 'atm' ? 'section-tag tag-atm' : 'section-tag tag-axts';
         if (contactSubmit) contactSubmit.className = brand === 'atm' ? 'btn btn-atm btn-full' : 'btn btn-axts btn-full';
 
+        // Swap social links
+        const igHandle = brand === 'atm' ? '@alextorres_music' : '@axts_music';
+        const ttHandle = brand === 'atm' ? '@alextorres_music' : '@axts_music';
+        document.getElementById('contactInstagram').href = `https://instagram.com/${igHandle.slice(1)}`;
+        document.getElementById('contactInstagramHandle').textContent = igHandle;
+        document.getElementById('contactTiktok').href = `https://tiktok.com/${ttHandle}`;
+        document.getElementById('contactTiktokHandle').textContent = ttHandle;
+
         // Update nav links to point to correct section IDs
         const suffix = brand === 'axts' ? '-axts' : '';
         navLinks.forEach(link => {

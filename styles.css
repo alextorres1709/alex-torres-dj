@@ -154,6 +154,15 @@ ul { list-style: none; }
     background-clip: text;
 }
 
+.split-axts-logo {
+    height: clamp(70px, 12vw, 160px);
+    width: auto;
+    max-width: 360px;
+    display: block;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 0 24px rgba(230, 0, 0, 0.65));
+}
+
 .split-genres {
     font-size: 0.85rem;
     color: var(--text-secondary);
