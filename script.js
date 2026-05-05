@@ -301,12 +301,23 @@ document.addEventListener('DOMContentLoaded', () => {
         enterBrand('atm');
     }
 
-    // --- YouTube facade: open on YouTube (embed disabled on this video) ---
+    // --- YouTube facade: try embed, fallback to YouTube tab ---
     document.querySelectorAll('.yt-facade').forEach(facade => {
         facade.addEventListener('click', () => {
             const id = facade.dataset.videoid;
             const start = facade.dataset.start || 0;
-            window.open(`https://www.youtube.com/watch?v=${id}&t=${start}s`, '_blank', 'noopener');
+            const origin = encodeURIComponent(location.origin || 'https://alextorres1709.github.io');
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${id}?start=${start}&autoplay=1&rel=0&origin=${origin}`;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            iframe.title = facade.querySelector('img')?.alt || 'YouTube video';
+            // If embed errors (e.g. embedding disabled), open in new tab
+            iframe.addEventListener('error', () => {
+                window.open(`https://www.youtube.com/watch?v=${id}&t=${start}s`, '_blank', 'noopener');
+            });
+            facade.innerHTML = '';
+            facade.appendChild(iframe);
         });
     });
 });
