@@ -300,4 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!AXTS_ENABLED) {
         enterBrand('atm');
     }
+
+    // --- YouTube facade: load iframe on click ---
+    document.querySelectorAll('.yt-facade').forEach(facade => {
+        facade.addEventListener('click', () => {
+            const id = facade.dataset.videoid;
+            const start = facade.dataset.start || 0;
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0`;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            iframe.title = facade.querySelector('img')?.alt || 'YouTube video';
+            facade.innerHTML = '';
+            facade.appendChild(iframe);
+        });
+    });
 });
